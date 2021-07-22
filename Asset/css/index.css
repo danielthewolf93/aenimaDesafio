@@ -1,0 +1,14 @@
+.bg-smok{
+    background-color: ghostwhite;
+}
+
+.img-tam{
+    height: 100%;
+    min-height: 284px;
+    max-height: 284px;
+}
+#tablaProducto{
+    width: 100% !important;
+}
+
+div.dataTables_processing { z-index: 1; }

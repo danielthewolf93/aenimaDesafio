@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Aenima</title>
+    <link rel="icon" href="Asset/img/faviconAenima.png" type="image/png">
+    <link rel="stylesheet" href="Asset/css/bootstrap.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand text-warning" href="#">Desafio Aenima</a>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active"  href="">Enunciado</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"  href="carga/">Carga</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="listado/">Listado</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    <div class="container p-4">
+        <h3>Aenima</h3>
+        <h6>Test FullStack Developer</h4>
+        <p>Confeccionar un catálogo de productos a elección. En el mismo se deberá poder
+            agregar, modificar o eliminar un producto, mostrando una vista individual de
+            detalles de cada uno. Un producto deberá tener id, nombre, descripción e imagen.
+            Se debe realizar el front-end y el back-end por separado, consumiendo los datos de
+            la API, sin mezclar ambos entornos.</p>
+        <ul><b>Back-end:</b> 
+            <li>Crear y configurar una API generando endpoints para consumir desde el front.</li>
+            <li>La carga de los productos deberá hacerse sin que se recargue la vista.</li>
+            <li>Los mismos deben almacenarse en una base de datos.</li>
+        </ul>
+        <ul><b>Front-end:</b> 
+            <li>Se deberán visualizar todos los productos, de manera simple y entendible.</li>
+            <li>Poder filtrar productos por características (precio, nombre, etc.), sin recargar la
+                vista.</li>
+        </ul>
+        <ul><b>Requerimientos:</b> 
+            <li>HTML5, CSS3, JavaScript.</li>
+            <li>Se recomienda usar librería de frontend para simplificar el desarrollo. (Ej.:
+                Bootstrap).</li>
+            <li>PHP o NodeJs.</li>
+        </ul>
+
+        <center>
+            <h5>Resolución</h5>
+
+            <button class="btn btn-info" id="listado" onclick="EnviarA('listado')">Listado (Front-end)</button>
+            <button class="btn btn-info" id="carga" onclick="EnviarA('carga')">Carga (Back-end)</button>
+        </center>
+    </div>
+    
+    <script src="Asset/js/index.js"></script>  
+
+</body>
+</html>

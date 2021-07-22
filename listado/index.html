@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado-Desafio Aenima</title>
+    <link rel="icon" href="../Asset/img/faviconAenima.png" type="image/png">
+    <link rel="stylesheet" href="../Asset/css/bootstrap.css">
+    <link rel="stylesheet" href="../Asset/css/index.css">
+
+</head>
+<body class="bg-smok">
+
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <a class="navbar-brand text-warning" href="#">Desafio Aenima</a>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link"  href="../">Enunciado</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"  href="../carga/">Carga</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="">Listado</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-5">
+        
+        <div class="form-group mb-2">
+            <h3 class="mb-0">Placas de video</h3>
+            <small id="cantidadResultados" class="text-muted">0 resultados</small>
+        </div>
+
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="list-group mt-2">
+                        <h4>Precio</h4>
+                        <div class="list-group-item" id="precioLista">
+                        <input type="range" class="form-range" step="0.01"  min="1" max="10" value="10" id="customRange">
+                        <div class="priceRange" id="customRangeSpan">
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="list-group  mt-2" >
+                        <h4>Fabricante</h4>
+                        <div class="card checkbox" >
+                            <ul class="list-group" id="fabricanteLista">
+                              </ul>                          
+                        </div>
+                    </div>
+
+                    <div class="list-group  mt-2">
+                        <h4>Marca</h4>
+                        <div class="card checkbox" >
+                            <ul class="list-group" id="marcaLista">
+                              </ul>                          
+                        </div>
+                    </div>
+
+                    <div class="list-group  mt-2">
+                        <h4>Modelo</h4>
+                        <div class="card checkbox">
+                            <ul class="list-group" id="modeloLista">
+                              </ul>                          
+                        </div>
+                    </div>
+                </div>
+
+
+            <div class="col-sm-9" id="carga">
+                        <div class="row row-cols-1 row-cols-md-3 g-4 mt-4" id="listarProductos">
+                           
+                      
+                          </div>
+                          
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="../Asset/js/listado.js"></script>
+
+    
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carga-Desafio Aenima</title>
+    <link rel="icon" href="../Asset/img/faviconAenima.png" type="image/png">
+    <link rel="stylesheet" href="../Asset/css/bootstrap.css">
+    <link rel="stylesheet" href="../Asset/css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="../Asset/fontawesome-free-5.15.3-web/css/all.css">
+
+</head>
+<body class="bg-smok">
+
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand text-warning" href="#">Desafio Aenima</a>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link"  href="../">Enunciado</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active"  href="">Carga</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../listado/">Listado</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+    
+
+    <!-- Modal Alta-->
+    <div class="modal fade" id="productoModal" tabindex="-1" aria-labelledby="productoModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header text-white bg-primary">
+            <h5 class="modal-title" id="productoModalLabel">Nuevo producto</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                
+                <form class="row g-3" method="POST" name="form-producto" id="form-producto" enctype="multipart/form-data">
+                    <div class="col-md-6">
+                      <label for="nombreProducto" class="form-label">Nombre</label>
+                      <input type="text" class="form-control" id="nombreProducto" name="nombreProducto" >
+                    </div>
+                    <div class="col-md-6">
+                      <label for="precioProducto" class="form-label">Precio</label>
+                      <input type="text" class="form-control" id="precioProducto" name="precioProducto" >
+                    </div>
+                    <div class="col-md-6">
+                      <label for="fabricanteProducto" class="form-label">Fabricante</label>
+                      <input type="text" class="form-control" id="fabricanteProducto" name="fabricanteProducto" >
+                    </div>
+                    <div class="col-md-6">
+                      <label for="marcaProducto" class="form-label">Marca</label>
+                      <input type="text" class="form-control" id="marcaProducto" name="marcaProducto" >
+                    </div>
+                    <div class="col-md-8">
+                      <label for="modeloProducto" class="form-label">Modelo</label>
+                      <input type="text" class="form-control" id="modeloProducto" name="modeloProducto" >
+                    </div>
+                    <div class="col-md-4">
+                        <label for="estadoProducto" class="form-label">Estado</label>
+                        <select class="form-select" id="estadoProducto" name="estadoProducto" >
+                          <option value="" disabled selected>Seleccione</option>
+                          <option value="0">Activo</option>
+                          <option value="1">Borrador</option>
+                        </select>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="image" class="form-label">Seleccione imagen</label>
+                        <input type="file" class="form-control " name="file" id="image" accept="image/png, image/jpeg, image/jpg" >
+                    </div>              
+                  
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="limpiarModal()">Cerrar</button>
+            <button type="submit" class="btn btn-primary" >Guardar</button>
+            </div>
+        </form>
+        </div>
+        </div>
+    </div>
+
+
+        <!-- Modal Editar-->
+        <div class="modal fade" id="productoModalEditar" tabindex="-1" aria-labelledby="productoModalEditar" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header text-white bg-primary">
+                <h5 class="modal-title" id="productoModalLabelEditar">Editar producto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    
+                    <form class="row g-3" method="POST" name="form-productoEditar" id="form-productoEditar" enctype="multipart/form-data">
+                        <div class="col-md-6">
+                          <label for="nombreProductoEditar" class="form-label">Nombre</label>
+                          <input type="text" class="form-control" id="nombreProductoEditar" name="nombreProductoEditar" >
+                        </div>
+                        <div class="col-md-6">
+                          <label for="precioProductoEditar" class="form-label">Precio</label>
+                          <input type="text" class="form-control" id="precioProductoEditar" name="precioProductoEditar" >
+                        </div>
+                        <div class="col-md-6">
+                          <label for="fabricanteProductoEditar" class="form-label">Fabricante</label>
+                          <input type="text" class="form-control" id="fabricanteProductoEditar" name="fabricanteProductoEditar" >
+                        </div>
+                        <div class="col-md-6">
+                          <label for="marcaProductoEditar" class="form-label">Marca</label>
+                          <input type="text" class="form-control" id="marcaProductoEditar" name="marcaProductoEditar" >
+                        </div>
+                        <div class="col-md-8">
+                          <label for="modeloProductoEditar" class="form-label">Modelo</label>
+                          <input type="text" class="form-control" id="modeloProductoEditar" name="modeloProductoEditar" >
+                        </div>
+                        <div class="col-md-4">
+                            <label for="estadoProductoEditar" class="form-label">Estado</label>
+                            <select class="form-select" id="estadoProductoEditar" name="estadoProductoEditar" >
+                              <option value="" disabled selected>Seleccione</option>
+                              <option value="0">Activo</option>
+                              <option value="1">Borrador</option>
+                            </select>
+                        </div>
+                        <div class="col-md-8">
+                            <label for="imageEditar" class="form-label">Seleccione imagen</label>
+                            <input type="file" class="form-control " name="file" id="imageEditar" accept="image/png, image/jpeg, image/jpg" >
+                        </div>
+                        <div class="col-md-4">
+                            <label for="imageEditarPreview" class="form-label">Preview</label>
+                            <img src="" id="imageEditarPreview" class=" mx-auto d-block" width="150px">
+                        </div>  
+
+                        <input type="hidden" name="idProductoEdit" id="idProductoEdit">            
+                        
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="limpiarModal2()">Cerrar</button>
+                <button type="submit" class="btn btn-primary" >Guardar</button>
+                </div>
+            </form>
+            </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- Modal Ver Detalle-->
+        <div class="modal fade" id="productoModalDetalle" tabindex="-1" aria-labelledby="productoModalDetalleLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header text-white bg-success">
+                <h5 class="modal-title" id="productoModalDetalleLabel">Ver detalles</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    
+                    <div class="container border rounded shadow p-3 bg-body">
+                        <div class="col-md-12 mb-4">
+                            <img src="../Asset/img/defaultImgProduct.png" alt="" id="imgDetalleProducto" class=" mx-auto d-block" width="200px">
+                        </div>  
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <div class="row">
+                                <div class="col-6"><span>ID</span></div>
+                                <div class="col-6 text-end">#<span id="idProductospan" name="idProductospan"></span></div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                <div class="col-6"><span>Nombre</span></div>
+                                <div class="col-6 text-end"><span id="nombreProductospan" name="nombreProductospan"></span></div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                    <div class="row">
+                                    <div class="col-6"><span>Precio</span></div>
+                                    <div class="col-6 text-end">$<span id="precioProductospan" name="precioProductospan"></span></div>
+                                    </div>
+                            </li>
+                            <li class="list-group-item">
+                                    <div class="row">
+                                    <div class="col-6"><span>Fabricante</span></div>
+                                    <div class="col-6 text-end"><span id="fabricanteProductospan" name="fabricanteProductospan"></span></div>
+                                    </div>
+                            
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-6"><span>Marca</span></div>
+                                    <div class="col-6 text-end"><span id="marcaProductospan" name="marcaProductospan"></span></div>
+                                    </div>
+                            </li>
+
+                            <li class="list-group-item">
+                                <div class="row">
+                                <div class="col-6"><span>Modelo</span></div>
+                                <div class="col-6 text-end"><span id="modeloProductospan" name="modeloProductospan"></span></div>
+                                </div>
+                        
+                            </li>
+
+                            <li class="list-group-item">
+                                <div class="row">
+                                <div class="col-6"><span>Fecha Carga</span></div>
+                                <div class="col-6 text-end"><span id="fechaProductospan" name="fechaProductospan"></span></div>
+                                </div>
+                        
+                            </li>
+
+
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-6"><span>Estado</span></div>
+                                    <div class="col-6 text-end"><span id="estadoProductospan" name="estadoProductospan"></span></div>
+                                </div>
+                            </li>
+
+                          </ul>
+                        
+                                    
+                    </div>
+    
+                <div>
+    
+                </div>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+    
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header">
+                <div class="row justify-content-between">
+                    <div class="col-4"><span class="fw-bolder">Gestión de productos</span></div>
+                    <div class="col-4 text-end"><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productoModal"><i class="fa fa-plus"></i> Nuevo producto</button></div>
+                  </div>
+                
+                
+            </div>
+            <div class="card-body" >
+
+            
+                <table id="tablaProducto" class="table table-responsive-sm table-striped d-block d-lg-table overflow-auto" >
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Fabricante</th>
+                            <th>Marca</th>
+                            <th>Modelo</th>
+                            <th>Fecha</th>
+                            <th>Estado</th>
+                            <th class="px-3">Acción</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody >
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
+    <script src="../Asset/js/bootstrap.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../Asset/js/carga.js"></script>
+
+    
+</body>
+</html>

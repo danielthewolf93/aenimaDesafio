@@ -1,0 +1,8 @@
+<?php
+$db = [
+    'host' => 'localhost',
+    'username' => 'root',
+    'password' => '',
+    'db' => 'desafio_aenima' 
+];
+?>
